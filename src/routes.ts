@@ -8,13 +8,13 @@ import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient
 import { FindAllAvailableController } from "./modules/deliveries/useCases/allDeliveriesAvailable/FindAllAvailableController";
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
 import { UpdateDeliverymanController } from "./modules/deliveries/useCases/updateDeliveryman/useCases/UpdateDeliverymanController";
-import { FindAllDeliveriesController } from "./modules/clients/useCases/deliveries/FindAllDeliveriesController";
+import { FindAllClientDeliveriesController } from "./modules/clients/useCases/findAllDeliveries/FindAllClientDeliveriesController";
 
 const routes = Router();
 
 const createClientController = new CreateClientController;
 const authenticateClientController = new AuthenticateClientController;
-const findAllDeliveriesClient = new FindAllDeliveriesController;
+const findAllDeliveriesClient = new FindAllClientDeliveriesController;
 
 const createDeliverymanController = new CreateDeliverymanController
 const authenticateDeliverymanController = new AuthenticateDeliverymanController;
