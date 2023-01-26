@@ -36,8 +36,8 @@ routes.post("/deliveryman/authenticate/", authenticateDeliverymanController.hand
 routes.get("/deliveryman/deliveries", ensureAuthenticateDeliveryman, findAllDeliverymanDeliveries.handle);
 
 routes.post("/delivery/", ensureAuthenticateClient, createDeliveryController.handle);
-routes.post("/delivery/updateEndDate/:id", ensureAuthenticateDeliveryman, updateEndDateController.handle);
 routes.get("/delivery/available/", ensureAuthenticateDeliveryman, findAllAvailableController.handle);
+routes.put("/delivery/updateEndDate/:id", ensureAuthenticateDeliveryman, updateEndDateController.handle);
 routes.put("/delivery/updateDeliveryman/:id", ensureAuthenticateDeliveryman, updateDeliverymanController.handle);
 
 export { routes };
