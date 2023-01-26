@@ -9,15 +9,17 @@ import { FindAllAvailableController } from "./modules/deliveries/useCases/allDel
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
 import { UpdateDeliverymanController } from "./modules/deliveries/useCases/updateDeliveryman/useCases/UpdateDeliverymanController";
 import { FindAllClientDeliveriesController } from "./modules/clients/useCases/findAllDeliveries/FindAllClientDeliveriesController";
+import { FindAllDeliverymanDeliveriesController } from "./modules/deliveryman/useCases/findAllDeliveries/FindAllDeliverymanDeliveriesController";
 
 const routes = Router();
 
 const createClientController = new CreateClientController;
 const authenticateClientController = new AuthenticateClientController;
-const findAllDeliveriesClient = new FindAllClientDeliveriesController;
+const findAllClientDeliveries = new FindAllClientDeliveriesController;
 
 const createDeliverymanController = new CreateDeliverymanController
 const authenticateDeliverymanController = new AuthenticateDeliverymanController;
+const findAllDeliverymanDeliveries = new FindAllDeliverymanDeliveriesController;
 
 const createDeliveryController = new CreateDeliveryController;
 const findAllAvailableController = new FindAllAvailableController;
@@ -26,10 +28,11 @@ const updateDeliverymanController = new UpdateDeliverymanController;
 
 routes.post("/client/", createClientController.handle);
 routes.post("/client/authenticate/", authenticateClientController.handle);
-routes.get("/client/deliveries/", ensureAuthenticateClient, findAllDeliveriesClient.handle);
+routes.get("/client/deliveries/", ensureAuthenticateClient, findAllClientDeliveries.handle);
 
 routes.post("/deliveryman/", createDeliverymanController.handle);
 routes.post("/deliveryman/authenticate/", authenticateDeliverymanController.handle);
+routes.get("/deliveryman/deliveries", ensureAuthenticateDeliveryman, findAllDeliverymanDeliveries.handle);
 
 routes.post("/delivery/", ensureAuthenticateClient, createDeliveryController.handle);
 routes.get("/delivery/available/", ensureAuthenticateDeliveryman, findAllAvailableController.handle);
