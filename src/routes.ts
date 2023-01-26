@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { CreateClientController } from "./modules/clients/useCases/createClient/CreateClientController";
-import { AuthenticateClientController } from "./modules/account/authenticateClient/AuthenticateClientController";
+import { AuthenticateClientController } from "./modules/account/useCases/authenticateClient/AuthenticateClientController";
 import { CreateDeliverymanController } from "./modules/deliveryman/useCases/createDeliveryman/CreateDeliverymanController";
-import { AuthenticateDeliverymanController } from "./modules/account/authenticateDeliveryman/AuthenticateDeliverymanController";
+import { AuthenticateDeliverymanController } from "./modules/account/useCases/authenticateDeliveryman/AuthenticateDeliverymanController";
 import { CreateDeliveryController } from "./modules/deliveries/useCases/createDelivery/CreateDeliveryController";
 import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
 import { FindAllAvailableController } from "./modules/deliveries/useCases/allDeliveriesAvailable/FindAllAvailableController";
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
-import { UpdateDeliverymanController } from "./modules/deliveries/useCases/updateDeliveryman/useCases/UpdateDeliverymanController";
+import { UpdateDeliverymanController } from "./modules/deliveries/useCases/updateDeliveryman/UpdateDeliverymanController";
 import { FindAllClientDeliveriesController } from "./modules/clients/useCases/findAllDeliveries/FindAllClientDeliveriesController";
 import { FindAllDeliverymanDeliveriesController } from "./modules/deliveryman/useCases/findAllDeliveries/FindAllDeliverymanDeliveriesController";
 import { UpdateEndDateController } from "./modules/deliveries/useCases/updateEndDate/UpdateEndDateController";
